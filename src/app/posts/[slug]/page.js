@@ -19,6 +19,7 @@ export default async function PostPage({ params }) {
 
   return (
     <article>
+      <h1>Single post page</h1>
       <h1>{title}</h1>
       <p>{body}</p>
     </article>
