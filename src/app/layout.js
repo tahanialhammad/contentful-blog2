@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
                   </ul>
                 </nav>
                 
-        {children}
+        <main className="p-4">{children}</main>
       </body>
     </html>
   );
