@@ -1,0 +1,42 @@
+import client from "../../lib/contentful";
+import Image from "next/image";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+
+export default async function ServicesPage() {
+  const res = await client.getEntries({
+    content_type: "service",
+    order: "fields.name",
+  });
+
+  const services = res.items;
+
+  return (
+    <div>
+      <h1>Diensten</h1>
+      <ul className="space-y-8">
+        {services.map(({ sys, fields }) => {
+          const plainText = documentToPlainTextString(fields.description);
+          const shortText = plainText.slice(0, 200) + "...";
+
+          return (
+            <li key={sys.id} className="border-b pb-6">
+              <h2 className="text-xl font-semibold">{fields.name}</h2>
+              <p>{shortText}</p>
+              <p>Prijs: €{fields.price}</p>
+
+              {fields.image && (
+                <Image
+                  src={`https:${fields.image.fields.file.url}`}
+                  alt={fields.name}
+                  width={600}
+                  height={400}
+                  className="rounded"
+                />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
