@@ -1,6 +1,7 @@
 import client from "../../lib/contentful";
 import Image from "next/image";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import Link from "next/link";
 
 export default async function ServicesPage() {
   const res = await client.getEntries({
@@ -9,6 +10,24 @@ export default async function ServicesPage() {
   });
 
   const services = res.items;
+
+
+
+
+function generateSlug(item) {
+  return item
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // verwijder speciale tekens
+    .replace(/\s+/g, '-')     // vervang spaties met streepjes
+}
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -20,7 +39,9 @@ export default async function ServicesPage() {
 
           return (
             <li key={sys.id} className="border-b pb-6">
+              <Link href={`/services/${generateSlug(fields.name)}`} >
               <h2 className="text-xl font-semibold">{fields.name}</h2>
+              </Link>
               <p>{shortText}</p>
               <p>Prijs: €{fields.price}</p>
 
