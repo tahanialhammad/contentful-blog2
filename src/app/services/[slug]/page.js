@@ -17,7 +17,7 @@ async function GetService(name) {
 }
 
 export default async function ServicePage({ params }) {
-  const service = await GetService(params.name);
+  const service = await GetService(params.slug);
 
   if (!service) {
     notFound(); // 404 pagina tonen als geen service gevonden
