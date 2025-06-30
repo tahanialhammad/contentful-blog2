@@ -2,14 +2,7 @@ import client from "../../../lib/contentful";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
-function generateSlug(item) {
-  return item
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "") // verwijder speciale tekens
-    .replace(/\s+/g, "-"); // vervang spaties met streepjes
-}
+import { generateSlug } from "../../../lib/generateSlug";
 
 async function GetService(name) {
   const services = await client.getEntries({
