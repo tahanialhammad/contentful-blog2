@@ -1,7 +1,9 @@
+import HeroSection from "../../components/HeroSection";
+
 export default function Aboutage() {
   return (
     <div>
-      <h1>About</h1>
+         <HeroSection title="About Page"/>
     </div>
   );
 }
