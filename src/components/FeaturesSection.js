@@ -1,5 +1,8 @@
-// components/FeaturesSection.js
+// Framer Motion werkt alleen op de client
+"use client";
+
 import { Code, Server, Search, Palette } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function FeaturesSection() {
   const features = [
@@ -25,6 +28,12 @@ export default function FeaturesSection() {
     },
   ];
 
+  // Animatie variant
+  const itemVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <section className="max-w-6xl mx-auto px-6 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -43,16 +52,31 @@ export default function FeaturesSection() {
         {/* Rechter kolom: features */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-            <div
+            // <div
+            //   key={index}
+            //   className="flex flex-col items-start text-left bg-white rounded-2xl p-6"
+            // >
+            //   <div className="mb-3">{feature.icon}</div>
+            //   <h3 className="text-lg font-semibold text-indigo-600">
+            //     {feature.title}
+            //   </h3>
+            //   <p className="text-gray-600">{feature.desc}</p>
+            // </div>
+
+            <motion.div
               key={index}
               className="flex flex-col items-start text-left bg-white rounded-2xl p-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
             >
               <div className="mb-3">{feature.icon}</div>
               <h3 className="text-lg font-semibold text-indigo-600">
                 {feature.title}
               </h3>
               <p className="text-gray-600">{feature.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
