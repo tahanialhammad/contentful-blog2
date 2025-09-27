@@ -2,11 +2,30 @@ import Image from "next/image";
 import HeroSection from "../components/HeroSection";
 import FeaturesSection from "../components/FeaturesSection";
 import TopProjects from "../components/TopProjects";
+import AppButton from "../components/AppButton";
 
 export default function Home() {
   return (
     <>
-      <HeroSection title="Professionele Websites , Webapplicaties op Maat" />
+      <HeroSection title="Professionele Websites , Webapplicaties op Maat">
+        <p className="mt-6 text-lg leading-8 text-gray-600">
+          Ben je op zoek naar een betrouwbare webontwikkelaar? Zoek niet verder.
+          Ik creëer op maat gemaakte websites en webapplicaties die
+          gebruiksvriendelijk, snel en goed vindbaar zijn op Google.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <AppButton
+            href="https://calendly.com/tahaninawebdeveloper/website-consultatie"
+            variant="fill"
+          >
+            Afspraak maken
+          </AppButton>
+
+          <AppButton href="#" variant="outline">
+            Portfolio bekijken <span aria-hidden="true">→</span>
+          </AppButton>
+        </div>
+      </HeroSection>
 
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

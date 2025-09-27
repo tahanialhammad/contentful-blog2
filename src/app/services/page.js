@@ -4,6 +4,7 @@ import { documentToPlainTextString } from "@contentful/rich-text-plain-text-rend
 import Link from "next/link";
 import { generateSlug } from "../../lib/generateSlug";
 import Card from "../../components/Card";
+import HeroSection from "../../components/HeroSection";
 
 export default async function ServicesPage() {
   const res = await client.getEntries({
@@ -15,7 +16,8 @@ export default async function ServicesPage() {
 
   return (
     <div>
-      <h1>Diensten</h1>
+      <HeroSection title="Diensten Page" />
+
       <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {services.map(({ sys, fields }) => {
           const plainText = documentToPlainTextString(fields.description);

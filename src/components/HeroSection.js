@@ -3,7 +3,7 @@
 import { useState } from "react";
 import AppButton from "../components/AppButton";
 
-export default function HeroSection({ title }) {
+export default function HeroSection({ title, children }) {
   return (
     <div>
       <div
@@ -23,23 +23,8 @@ export default function HeroSection({ title }) {
           <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
             {title}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Ben je op zoek naar een betrouwbare webontwikkelaar? Zoek niet
-            verder. Ik creëer op maat gemaakte websites en webapplicaties die
-            gebruiksvriendelijk, snel en goed vindbaar zijn op Google.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <AppButton
-              href="https://calendly.com/tahaninawebdeveloper/website-consultatie"
-              variant="fill"
-            >
-              Afspraak maken
-            </AppButton>
-
-            <AppButton href="#" variant="outline">
-              Portfolio bekijken <span aria-hidden="true">→</span>
-            </AppButton>
-          </div>
+          {/* Hier komt je custom content (slot → children) */}
+          <div>{children}</div>
         </div>
       </div>
       <div

@@ -26,20 +26,21 @@ export default async function ServicePage({ params }) {
   const { name, description, price, image } = service.fields;
 
   return (
-    <div>
-      <h1>ServicePage</h1>
-      <h1>{name}</h1>
-      <p>Prijs: €{price}</p>
-
+    <div className="max-w-4xl mx-auto px-6 py-12">
       {image && (
-        <Image
-          src={`https:${image.fields.file.url}`}
-          alt={name}
-          width={600}
-          height={400}
-          className="rounded"
-        />
+        <div className="relative w-full h-80 mb-6">
+          <Image
+            src={`https:${image.fields.file.url}`}
+            alt={name}
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
       )}
+      <div className="flex justify-between align-middle">
+        <h1 className="text-3xl font-bold mb-4">{name}</h1>
+        <h3>Prijs: €{price}</h3>
+      </div>
 
       <div className="prose">{documentToReactComponents(description)}</div>
     </div>
