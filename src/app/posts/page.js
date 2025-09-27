@@ -8,13 +8,15 @@ export default async function BlogPage() {
   //   content_type: "blogPost",
   //   order: "-fields.publishDate",
   // });
-const res = await client.getEntries({
-  content_type: "blogPost",
-  order: "-fields.publishDate",
-}, {
-  next: { revalidate: 60 }, // ← Forceer vernieuwen elke 60 seconden
-});
-
+  const res = await client.getEntries(
+    {
+      content_type: "blogPost",
+      order: "-fields.publishDate",
+    },
+    {
+      next: { revalidate: 60 }, // ← Forceer vernieuwen elke 60 seconden
+    }
+  );
 
   const posts = res.items;
 
@@ -23,10 +25,12 @@ const res = await client.getEntries({
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-            From the blog update
+            Blog
           </h2>
           <p className="mt-2 text-lg/8 text-gray-600">
-            Learn how to grow your business with our expert advice.
+            Blijf op de hoogte van trends in webontwikkeling, tips over
+            WordPress en Laravel, en praktische adviezen voor ondernemers.
+            Ontdek mijn nieuwste blogs en laat je inspireren!
           </p>
         </div>
 
@@ -43,18 +47,23 @@ const res = await client.getEntries({
                 <div>
                   {fields.image && (
                     <div className="relative w-full h-[200px]">
-                      <Image
-                        src={`https:${fields.image.fields.file.url}`}
-                        alt={fields.title}
-                        fill
-                        className="rounded-lg object-cover"
-                      />
+                      <Link href={`/posts/${fields.slug}`}>
+                        <Image
+                          src={`https:${fields.image.fields.file.url}`}
+                          alt={fields.title}
+                          fill
+                          className="rounded-lg object-cover"
+                        />
+                      </Link>
                     </div>
                   )}
 
                   <div className="p-5">
                     <div className="flex items-center gap-x-4 text-xs mb-2">
-                      <time dateTime={fields.publishDate} className="text-gray-500">
+                      <time
+                        dateTime={fields.publishDate}
+                        className="text-gray-500"
+                      >
                         {fields.publishDate}
                       </time>
                       {fields.category?.title && (
@@ -67,7 +76,9 @@ const res = await client.getEntries({
                     <h3 className="text-lg font-semibold text-gray-900 hover:text-gray-600">
                       <Link href={`/posts/${fields.slug}`}>{fields.title}</Link>
                     </h3>
-                    <p className="mt-3 text-sm text-gray-600 line-clamp-3">{shortText}</p>
+                    <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                      {shortText}
+                    </p>
 
                     <Link
                       href={`/posts/${fields.slug}`}
@@ -93,7 +104,9 @@ const res = await client.getEntries({
                       <p className="font-semibold text-gray-900">
                         {fields.author?.name || "Tahani Alhammad"}
                       </p>
-                      <p className="text-gray-600">{fields.author?.role || ""}</p>
+                      <p className="text-gray-600">
+                        {fields.author?.role || ""}
+                      </p>
                     </div>
                   </div>
                 </div>

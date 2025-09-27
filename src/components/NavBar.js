@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import NavLink from "./NavLink";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
+  { name: "Diensten", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Blog", href: "/posts" },
-  { name: "About", href: "/about" },
+  { name: "Over mij", href: "/about" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];
@@ -26,7 +27,7 @@ export default function NavBar() {
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Tahanina</span>
               <img
                 className="h-8 w-auto"
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=fuchsia&shade=600"
@@ -46,13 +47,18 @@ export default function NavBar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold text-gray-900"
-              >
-                {item.name}
-              </a>
+              // <a
+              //   key={item.name}
+              //   href={item.href}
+              //   className="text-sm font-semibold text-gray-900"
+              // >
+              //   {item.name}
+              // </a>
+
+                  <NavLink key={item.name} href={item.href}>
+              {item.name}
+            </NavLink>
+
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -72,7 +78,7 @@ export default function NavBar() {
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">Tahanina</span>
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=fuchsia&shade=600"

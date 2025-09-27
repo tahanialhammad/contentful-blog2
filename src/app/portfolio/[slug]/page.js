@@ -31,12 +31,11 @@ export default async function ProjectPage({ params }) {
         </div>
       )}
       <div className="flex justify-between align-middle">
-
-      <h1 className="text-3xl font-bold mb-4">{title}</h1>
-      <div className="text-sm text-fuchsia-600 mb-2">
-        {category?.fields?.name}
+        <h1 className="text-3xl font-bold mb-4">{title}</h1>
+        <div className="text-sm text-fuchsia-600 mb-2">
+          {category?.fields?.name}
+        </div>
       </div>
-</div>
       <div className="prose max-w-none text-gray-700">
         {description && documentToReactComponents(description)}
       </div>
