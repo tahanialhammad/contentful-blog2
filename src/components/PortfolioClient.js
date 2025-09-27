@@ -1,10 +1,8 @@
 "use client";
-// "use client" bovenaan:
-// Nodig omdat we React hooks zoals useState gebruiken.
-// Alles in deze component draait in de browser, niet op de server.
 
 import { useState } from "react";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import Image from "next/image";
 
 export default function PortfolioClient({ projects, categories }) {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -49,17 +47,52 @@ export default function PortfolioClient({ projects, categories }) {
       {/* Project grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project) => {
-          const category = project.fields.category?.fields?.name || "Geen categorie";
+          const category =
+            project.fields.category?.fields?.name || "Geen categorie";
+
+          // Korte beschrijving
+          const plainText = project.fields.description
+            ? documentToPlainTextString(project.fields.description)
+            : "";
+          const shortText =
+            plainText.length > 200
+              ? plainText.slice(0, 200) + "..."
+              : plainText;
+
+          // Afbeelding
+          const imageUrl = project.fields.image?.fields?.file?.url;
+          const imageAlt =
+            project.fields.image?.fields?.title || project.fields.title;
+
           return (
             <div
               key={project.sys.id}
-              className="p-4 rounded-lg bg-white shadow hover:shadow-lg transition"
+              className="rounded-lg bg-white shadow hover:shadow-lg transition overflow-hidden"
             >
-              <div className="text-sm text-fuchsia-600 font-medium mb-1">{category}</div>
-              <h2 className="text-xl font-semibold">{project.fields.title}</h2>
-              <div className="text-gray-600 mt-2">
-                {project.fields.description &&
-                  documentToReactComponents(project.fields.description)}
+              {/* Image bovenaan */}
+
+              {imageUrl && (
+                <div className="relative w-full h-48">
+                  <Image
+                    src={`https:${imageUrl}`} // Contentful URL heeft soms geen protocol
+                    alt={imageAlt}
+                    fill
+                    className="object-cover rounded-t-lg"
+                    priority={false}
+                  />
+                </div>
+              )}
+
+              <div className="p-4">
+                <div className="text-sm text-fuchsia-600 font-medium mb-1">
+                  {category}
+                </div>
+                <h2 className="text-xl font-semibold line-clamp-2 break-words">
+                  {project.fields.title}
+                </h2>
+                <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                  {shortText}
+                </p>
               </div>
             </div>
           );
