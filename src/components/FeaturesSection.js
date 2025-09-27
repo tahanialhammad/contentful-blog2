@@ -39,13 +39,14 @@ export default function FeaturesSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Linker kolom: titel + intro */}
         <div className="m-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Onze diensten
+          <h4 className="uppercase">Onze diensten</h4>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Wij creëren de beste digitale producten
           </h2>
           <p className="text-gray-600">
-            Wij creëren de beste digitale producten. Mijn creaties zijn meer dan
-            alleen techniek – het is digitale kunst met een doel. Elk ontwerp is
-            met zorg gemaakt om niet alleen te werken, maar ook te inspireren.
+            Mijn creaties zijn meer dan alleen techniek – het is digitale kunst
+            met een doel. Elk ontwerp is met zorg gemaakt om niet alleen te
+            werken, maar ook te inspireren.
           </p>
         </div>
 
