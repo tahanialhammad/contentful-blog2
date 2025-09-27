@@ -28,7 +28,7 @@ export default function NavBar() {
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=fuchsia&shade=600"
                 alt=""
               />
             </a>
@@ -74,7 +74,7 @@ export default function NavBar() {
                 <span className="sr-only">Your Company</span>
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=fuchsia&shade=600"
                   alt=""
                 />
               </a>

@@ -9,22 +9,22 @@ export default function FeaturesSection() {
     {
       title: "Website bouwen",
       desc: "WordPress website of webshop op maat",
-      icon: <Code className="w-10 h-10 text-indigo-600" />,
+      icon: <Code className="w-10 h-10 text-fuchsia-600" />,
     },
     {
       title: "Software Ontwikkeling",
       desc: "Laravel-apps met moderne technologieën",
-      icon: <Server className="w-10 h-10 text-indigo-600" />,
+      icon: <Server className="w-10 h-10 text-fuchsia-600" />,
     },
     {
       title: "Vindbaar op Google (SEO)",
       desc: "Zichtbaar in Google & Bing",
-      icon: <Search className="w-10 h-10 text-indigo-600" />,
+      icon: <Search className="w-10 h-10 text-fuchsia-600" />,
     },
     {
       title: "Merkidentiteit",
       desc: "Logo’s, pictogrammen & meer",
-      icon: <Palette className="w-10 h-10 text-indigo-600" />,
+      icon: <Palette className="w-10 h-10 text-fuchsia-600" />,
     },
   ];
 
@@ -57,7 +57,7 @@ export default function FeaturesSection() {
             //   className="flex flex-col items-start text-left bg-white rounded-2xl p-6"
             // >
             //   <div className="mb-3">{feature.icon}</div>
-            //   <h3 className="text-lg font-semibold text-indigo-600">
+            //   <h3 className="text-lg font-semibold text-fuchsia-600">
             //     {feature.title}
             //   </h3>
             //   <p className="text-gray-600">{feature.desc}</p>
@@ -72,7 +72,7 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
             >
               <div className="mb-3">{feature.icon}</div>
-              <h3 className="text-lg font-semibold text-indigo-600">
+              <h3 className="text-lg font-semibold text-fuchsia-600">
                 {feature.title}
               </h3>
               <p className="text-gray-600">{feature.desc}</p>
