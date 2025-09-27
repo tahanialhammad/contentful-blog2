@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Image from "next/image";
+import Link from "next/link";
+import { generateSlug } from "../lib/generateSlug";
 
 export default function PortfolioClient({ projects, categories }) {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -64,21 +66,23 @@ export default function PortfolioClient({ projects, categories }) {
           const imageAlt =
             project.fields.image?.fields?.title || project.fields.title;
 
+          // Slug
+          const slug = generateSlug(project.fields.title);
+
           return (
-            <div
+            <Link
               key={project.sys.id}
-              className="rounded-lg bg-white shadow hover:shadow-lg transition overflow-hidden"
+              href={`/portfolio/${slug}`}
+              className="block rounded-lg bg-white shadow hover:shadow-lg transition overflow-hidden"
             >
               {/* Image bovenaan */}
-
               {imageUrl && (
                 <div className="relative w-full h-48">
                   <Image
-                    src={`https:${imageUrl}`} // Contentful URL heeft soms geen protocol
+                    src={`https:${imageUrl}`}
                     alt={imageAlt}
                     fill
                     className="object-cover rounded-t-lg"
-                    priority={false}
                   />
                 </div>
               )}
@@ -94,7 +98,7 @@ export default function PortfolioClient({ projects, categories }) {
                   {shortText}
                 </p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
