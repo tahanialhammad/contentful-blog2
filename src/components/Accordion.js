@@ -71,7 +71,7 @@ export default function Accordion({ items }) {
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto space-y-2 p-4">
+    <div className="w-full max-w-xl mx-auto space-y-2 p-4 ">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
 

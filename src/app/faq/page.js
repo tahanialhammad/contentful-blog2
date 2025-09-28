@@ -36,8 +36,6 @@
 //   );
 // }
 
-
-
 import client from "../../lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Accordion from "../../components/Accordion";
@@ -62,14 +60,23 @@ export default async function FAQPage() {
         }));
 
         return (
-          <div key={group.sys.id} className="mb-12">
-            <h2 className="text-xl font-semibold mb-4">{group.fields.title}</h2>
+          <div
+            key={group.sys.id}
+            className="mb-12 flex flex-col md:flex-row gap-6 border-b-2 border-fuchsia-600"
+          >
+            {/* Linker kolom: titel */}
+            <div className="md:w-1/4 flex items-start">
+              <h2 className="text-xl font-semibold">{group.fields.title}</h2>
+            </div>
 
-            {faqItems?.length > 0 ? (
-              <Accordion items={faqItems} />
-            ) : (
-              <p>Geen vragen in deze groep.</p>
-            )}
+            {/* Rechter kolom: Accordion */}
+            <div className="md:w-3/4">
+              {faqItems?.length > 0 ? (
+                <Accordion items={faqItems} />
+              ) : (
+                <p>Geen vragen in deze groep.</p>
+              )}
+            </div>
           </div>
         );
       })}
