@@ -1,5 +1,6 @@
 import HeroSection from "../../components/HeroSection";
 import { MapPin, Mail, Smartphone } from "lucide-react";
+import ContactForm from "../../components/ContactForm";
 
 export default function ContactPage() {
   return (
@@ -38,6 +39,9 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+
+      <ContactForm />
     </div>
   );
 }
