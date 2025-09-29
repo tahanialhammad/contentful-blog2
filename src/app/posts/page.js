@@ -2,6 +2,7 @@ import client from "../../lib/contentful";
 import Link from "next/link";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Image from "next/image";
+import HeroSection from "../../components/HeroSection";
 
 export default async function BlogPage() {
   // const res = await client.getEntries({
@@ -21,18 +22,14 @@ export default async function BlogPage() {
   const posts = res.items;
 
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-            Blog
-          </h2>
-          <p className="mt-2 text-lg/8 text-gray-600">
+    <div className="">
+            <HeroSection title="Blog" >
+  <p className="mt-2 text-lg/8 text-gray-600">
             Blijf op de hoogte van trends in webontwikkeling, tips over
             WordPress en Laravel, en praktische adviezen voor ondernemers.
             Ontdek mijn nieuwste blogs en laat je inspireren!
           </p>
-        </div>
+            </HeroSection>
 
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map(({ sys, fields }) => {
@@ -114,7 +111,6 @@ export default async function BlogPage() {
             );
           })}
         </div>
-      </div>
     </div>
   );
 }

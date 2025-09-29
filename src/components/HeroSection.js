@@ -18,7 +18,7 @@ export default function HeroSection({ title, children }) {
           }}
         />
       </div>
-      <div className="mx-auto max-w-2xl py-32 sm:py-48ttt lg:py-56tt">
+      <div className="mx-auto max-w-2xl pt-32 sm:py-48ttt lg:py-56tt">
         <div className="text-center">
           <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
             {title}

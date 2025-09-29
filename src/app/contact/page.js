@@ -1,6 +1,7 @@
 import HeroSection from "../../components/HeroSection";
 import { MapPin, Mail, Smartphone } from "lucide-react";
 import ContactForm from "../../components/ContactForm";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
@@ -39,9 +40,22 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-
-      <ContactForm />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 py-12">
+        {/* Linker kolom */}
+        <div className="relative w-full h-80">
+          <Image
+            src="/background2.webp"
+            alt="Over Tahanina"
+            fill
+            className="object-cover rounded-xl shadow-2xl"
+            priority={false}
+          />
+        </div>{" "}
+        {/* Rechter kolom */}
+        <div className="">
+          <ContactForm />
+        </div>
+      </div>
     </div>
   );
 }

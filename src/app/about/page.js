@@ -6,9 +6,9 @@ export default function Aboutage() {
   return (
     <div>
       <HeroSection title="Hi, ik ben Tahani">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-12">
           {/* Linker kolom */}
-          <div className="p-6">
+          <div className="">
             <h2 className="text-xl font-bold mb-4">
               Freelance webontwikkelaar en oprichter van Tahanina
             </h2>
@@ -20,7 +20,15 @@ export default function Aboutage() {
           </div>
 
           {/* Rechter kolom */}
-          <div className="p-6 rounded-lg">
+          <div className="rounded-lg">
+            <Image
+              src="/tahanina.png"
+              alt="about tahanina"
+              width={200}
+              height={200}
+              className="object-cover rounded-xl my-4 shadow-2xl"
+              priority
+            />
             <Image
               className="dark:invert"
               src="/next.svg"
@@ -33,7 +41,7 @@ export default function Aboutage() {
         </div>
       </HeroSection>
 
-      <section className="max-w-6xl mx-auto px-6 py-12">
+      <section className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="p-6 bg-white rounded-xl shadow">
             <h3 className="text-xl font-semibold mb-2">Heldere communicatie</h3>
@@ -63,7 +71,7 @@ export default function Aboutage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 py-12">
         {/* Linker kolom */}
-          <div className="relative w-full h-80">
+        <div className="relative w-full h-80">
           <Image
             src="/background2.webp"
             alt="Over Tahanina"
@@ -74,7 +82,7 @@ export default function Aboutage() {
         </div>
 
         {/* Rechter kolom */}
-            <div className="p-6">
+        <div className="p-6">
           <h2 className="text-xl font-bold mb-4">Waarom Tahanina?</h2>
           <p>
             Tahanina is een Arabische uitdrukking die “gefeliciteerd” betekent.
@@ -86,7 +94,6 @@ export default function Aboutage() {
           </p>
         </div>
       </div>
-
 
       <CallToAction />
     </div>
