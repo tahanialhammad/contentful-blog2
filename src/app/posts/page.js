@@ -3,6 +3,7 @@ import Link from "next/link";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Image from "next/image";
 import HeroSection from "../../components/HeroSection";
+import PageContent from "../../components/PageContent";
 
 export default async function BlogPage() {
   // const res = await client.getEntries({
@@ -23,15 +24,16 @@ export default async function BlogPage() {
 
   return (
     <div className="">
-            <HeroSection title="Blog" >
-  <p className="mt-2 text-lg/8 text-gray-600">
-            Blijf op de hoogte van trends in webontwikkeling, tips over
-            WordPress en Laravel, en praktische adviezen voor ondernemers.
-            Ontdek mijn nieuwste blogs en laat je inspireren!
-          </p>
-            </HeroSection>
+      <HeroSection title="Blog">
+        <p className="mt-2 text-lg/8 text-gray-600">
+          Blijf op de hoogte van trends in webontwikkeling, tips over WordPress
+          en Laravel, en praktische adviezen voor ondernemers. Ontdek mijn
+          nieuwste blogs en laat je inspireren!
+        </p>
+      </HeroSection>
 
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <PageContent>
+        <div className="mx-auto grid max-w-2xltt grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map(({ sys, fields }) => {
             const plainText = documentToPlainTextString(fields.content);
             const shortText = plainText.slice(0, 200) + "...";
@@ -111,6 +113,7 @@ export default async function BlogPage() {
             );
           })}
         </div>
+      </PageContent>
     </div>
   );
 }

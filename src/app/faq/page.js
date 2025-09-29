@@ -39,6 +39,8 @@
 import client from "../../lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Accordion from "../../components/Accordion";
+import PageContent from "../../components/PageContent";
+import HeroSection from "../../components/HeroSection";
 
 export default async function FAQPage() {
   const response = await client.getEntries({
@@ -49,37 +51,38 @@ export default async function FAQPage() {
   const faqGroups = response.items;
 
   return (
-    <div className="faq-page p-8">
-      <h1 className="text-2xl font-bold mb-6">Veelgestelde vragen</h1>
+    <div>
+      <HeroSection title="Veelgestelde vragen" />
+      <PageContent>
+        {faqGroups.map((group) => {
+          // Zet elk FAQ item om naar juiste formaat voor Accordion
+          const faqItems = group.fields.faQs?.map((faq) => ({
+            question: faq.fields.question,
+            answer: documentToReactComponents(faq.fields.answer),
+          }));
 
-      {faqGroups.map((group) => {
-        // Zet elk FAQ item om naar juiste formaat voor Accordion
-        const faqItems = group.fields.faQs?.map((faq) => ({
-          question: faq.fields.question,
-          answer: documentToReactComponents(faq.fields.answer),
-        }));
+          return (
+            <div
+              key={group.sys.id}
+              className="mb-12 flex flex-col md:flex-row gap-6 border-b-2 border-fuchsia-600"
+            >
+              {/* Linker kolom: titel */}
+              <div className="md:w-1/4 flex items-start">
+                <h2 className="text-xl font-semibold">{group.fields.title}</h2>
+              </div>
 
-        return (
-          <div
-            key={group.sys.id}
-            className="mb-12 flex flex-col md:flex-row gap-6 border-b-2 border-fuchsia-600"
-          >
-            {/* Linker kolom: titel */}
-            <div className="md:w-1/4 flex items-start">
-              <h2 className="text-xl font-semibold">{group.fields.title}</h2>
+              {/* Rechter kolom: Accordion */}
+              <div className="md:w-3/4">
+                {faqItems?.length > 0 ? (
+                  <Accordion items={faqItems} />
+                ) : (
+                  <p>Geen vragen in deze groep.</p>
+                )}
+              </div>
             </div>
-
-            {/* Rechter kolom: Accordion */}
-            <div className="md:w-3/4">
-              {faqItems?.length > 0 ? (
-                <Accordion items={faqItems} />
-              ) : (
-                <p>Geen vragen in deze groep.</p>
-              )}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </PageContent>
     </div>
   );
 }
