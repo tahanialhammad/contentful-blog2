@@ -34,24 +34,6 @@ export default async function ServicesPage() {
                 imageAlt={fields.name}
                 footer={`Prijs: €${fields.price}`}
               />
-
-              // <li key={sys.id} className="border-b pb-6">
-              //   <Link href={`/services/${generateSlug(fields.name)}`}>
-              //     <h2 className="text-xl font-semibold">{fields.name}</h2>
-              //   </Link>
-              //   <p>{shortText}</p>
-              //   <p>Prijs: €{fields.price}</p>
-
-              //   {fields.image && (
-              //     <Image
-              //       src={`https:${fields.image.fields.file.url}`}
-              //       alt={fields.name}
-              //       width={600}
-              //       height={400}
-              //       className="rounded"
-              //     />
-              //   )}
-              // </li>
             );
           })}
         </div>
