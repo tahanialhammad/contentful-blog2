@@ -17,7 +17,7 @@ export default async function ServicesPage() {
 
   return (
     <div>
-      <HeroSection title="Diensten Page" />
+      <HeroSection title="منتجاتنا" />
       <PageContent>
         <div className="mx-auto grid max-w-2xltt grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {services.map(({ sys, fields }) => {

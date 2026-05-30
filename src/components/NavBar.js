@@ -7,8 +7,8 @@ import NavLink from "./NavLink";
 
 const navigation = [
   { name: "الرئيسية", href: "/" },
-  { name: "الخدمات", href: "/services" },
-  { name: "منتجاتنا", href: "/portfolio" },
+  { name: "منتجاتنا", href: "/services" },
+  { name: "اعمال مميزة", href: "/portfolio" },
   { name: "المدونة", href: "/posts" },
   { name: "من انا", href: "/about" },
   { name: "الأسئلة الشائعة", href: "/faq" },
