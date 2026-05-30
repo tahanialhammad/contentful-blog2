@@ -24,11 +24,9 @@ export default async function BlogPage() {
 
   return (
     <div className="">
-      <HeroSection title="Blog">
+      <HeroSection title="المدونة">
         <p className="mt-2 text-lg/8 text-gray-600">
-          Blijf op de hoogte van trends in webontwikkeling, tips over WordPress
-          en Laravel, en praktische adviezen voor ondernemers. Ontdek mijn
-          nieuwste blogs en laat je inspireren!
+        
         </p>
       </HeroSection>
 

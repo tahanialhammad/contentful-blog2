@@ -6,13 +6,13 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavLink from "./NavLink";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Diensten", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Blog", href: "/posts" },
-  { name: "Over mij", href: "/about" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
+  { name: "الرئيسية", href: "/" },
+  { name: "الخدمات", href: "/services" },
+  { name: "منتجاتنا", href: "/portfolio" },
+  { name: "المدونة", href: "/posts" },
+  { name: "من انا", href: "/about" },
+  { name: "الأسئلة الشائعة", href: "/faq" },
+  { name: "تواصل معنا", href: "/contact" },
 ];
 
 export default function NavBar() {
@@ -27,7 +27,7 @@ export default function NavBar() {
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Tahanina</span>
+              <span className="sr-only">Nawara</span>
               <img
                 className="h-8 w-auto"
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=fuchsia&shade=600"
@@ -78,7 +78,7 @@ export default function NavBar() {
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Tahanina</span>
+                <span className="sr-only">Nawara</span>
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=fuchsia&shade=600"

@@ -20,7 +20,7 @@ export default function PortfolioClient({ projects, categories }) {
 
   return (
     <div>
-      <HeroSection title="Portfolio Page" />
+      <HeroSection title="منتجاتنا" />
       <PageContent>
         <div className="max-w-6xl mx-auto px-6 py-12">
           {/* Filter knoppen */}
