@@ -38,8 +38,9 @@ export default async function BlogPage() {
                         <Image
                           src={`https:${fields.image.fields.file.url}`}
                           alt={fields.title}
-                          fill
-                          className="object-cover rounded-t-xl"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          width={400}
+                          height={400} className="object-cover rounded-t-xl"
                         />
                       </Link>
                     </div>
@@ -62,7 +63,7 @@ export default async function BlogPage() {
                         {fields.title}
                       </Link>
                     </h3>
-                    
+
                     <p className="text-sm text-on-surface-variant leading-relaxed line-clamp-3">
                       {shortText}
                     </p>

@@ -30,8 +30,9 @@ export default async function ProjectPage({ params }) {
           <Image
             src={`https:${image.fields.file.url}`}
             alt={image.fields.title || title}
-            fill
-            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            width={400}
+            height={400} className="object-cover"
           />
         </div>
       )}

@@ -4,6 +4,7 @@ import TopProjects from "../components/TopProjects";
 import CallToAction from "../components/CallToAction";
 import AppButton from "../components/AppButton";
 import CandleSection from "../components/CandleSection";
+import ResinSection from "../components/ResinSection";
 
 
 export default function Home() {
@@ -26,9 +27,11 @@ export default function Home() {
       </HeroSection>
 
       <div className="max-w-7xl mx-auto space-y-24 px-4 sm:px-6 lg:px-8">
+        <FeaturesSection />
+
         <CandleSection />
 
-        <FeaturesSection />
+        <ResinSection />
 
         <TopProjects />
 

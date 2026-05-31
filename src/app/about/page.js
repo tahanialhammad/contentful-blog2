@@ -25,7 +25,9 @@ export default function AboutPage() {
               <Image
                 src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=687&auto=format&fit=crop"
                 alt="صناعة الشموع والريزن هدايا نوارة"
-                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                width={400}
+                height={400}
                 className="object-cover"
                 priority
               />
@@ -72,7 +74,9 @@ export default function AboutPage() {
             <Image
               src="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=1170&auto=format&fit=crop"
               alt="لماذا هدايا نوارة"
-              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              width={400}
+              height={400}
               className="object-cover"
               priority={false}
             />
@@ -82,7 +86,7 @@ export default function AboutPage() {
           <div className="p-6 space-y-4">
             <h2 className="font-serif text-2xl font-bold text-foreground">لماذا هدايا نوارة؟</h2>
             <p className="text-on-surface-variant leading-relaxed">
-              اسم <strong>نوارة</strong> يعني الضياء والإشراق والزهرة المتفتحة. يعكس هذا الاسم رؤيتنا في نشر الدفء والجمال والضوء من خلال شموعنا العطرة المضيئة وقطع الريزن البراقة التي نصنعها. 
+              اسم <strong>نوارة</strong> يعني الضياء والإشراق والزهرة المتفتحة. يعكس هذا الاسم رؤيتنا في نشر الدفء والجمال والضوء من خلال شموعنا العطرة المضيئة وقطع الريزن البراقة التي نصنعها.
               <br /><br />
               نحن نؤمن أن كل هدية تقدمها تحمل معها مشاعر صادقة وتهاني حارة، لذا نسعى لجعلها نوارة تضيء قلوب من تحبون وتترك فيها أثرًا جميلاً يدوم.
             </p>

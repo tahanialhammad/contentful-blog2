@@ -51,8 +51,9 @@ export default function ContactPage() {
             <Image
               src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=687&auto=format&fit=crop"
               alt="صناعة الشموع والريزن اليدوية"
-              fill
-              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              width={400}
+              height={400} className="object-cover"
               priority={false}
             />
           </div>
