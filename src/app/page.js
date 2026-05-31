@@ -3,6 +3,8 @@ import FeaturesSection from "../components/FeaturesSection";
 import TopProjects from "../components/TopProjects";
 import CallToAction from "../components/CallToAction";
 import AppButton from "../components/AppButton";
+import CandleSection from "../components/CandleSection";
+
 
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
         <p className="mt-6 text-lg leading-8 text-on-surface-variant font-sans max-w-2xl mx-auto">
           في هدايا نوارة نصنع قطعًا فنية فريدة تجمع بين الجمال والهدوء، من الشموع العطرية إلى أعمال الريزن المميزة، وكل قطعة تُصنع يدويًا بحب واهتمام بالتفاصيل.
         </p>
-        
+
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <AppButton href="/contact" variant="fill">
             اطلب تصميمًا مخصصًا
@@ -24,10 +26,12 @@ export default function Home() {
       </HeroSection>
 
       <div className="max-w-7xl mx-auto space-y-24 px-4 sm:px-6 lg:px-8">
+        <CandleSection />
+
         <FeaturesSection />
-        
+
         <TopProjects />
-        
+
         <CallToAction />
       </div>
     </div>
