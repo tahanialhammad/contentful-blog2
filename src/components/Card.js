@@ -28,20 +28,26 @@ export default function Card({ image, title, description, link, footer, imageAlt
           <p className="font-sans text-sm text-on-surface-variant line-clamp-3 mb-4 leading-relaxed">{description}</p>
         )}
 
-        {/* Lees meer link */}
-        {link && (
-          <Link href={link} className="font-sans text-primary hover:text-primary-container font-semibold text-sm mt-auto inline-flex items-center gap-1 transition-colors">
-            اقرأ المزيد ←
-          </Link>
-        )}
+        <div className="flex justify-between mt-auto">
+          {/* Lees meer link */}
+          {link && (
+            <Link href={link} className="font-sans text-primary hover:text-primary-container font-semibold text-sm mt-auto inline-flex items-center gap-1 transition-colors">
+              اقرأ المزيد ←
+            </Link>
+          )}
+          {footer && (
+            <div className="px-5 border-t border-outline-variant bg-surface-container-low text-sm text-on-surface-variant font-medium">
+              {footer}
+            </div>
+          )}
+        </div>
+
+
+        {/* Card Footer */}
+
       </div>
 
-      {/* Card Footer */}
-      {footer && (
-        <div className="p-5 border-t border-outline-variant bg-surface-container-low text-sm text-on-surface-variant font-medium">
-          {footer}
-        </div>
-      )}
+
     </div>
   );
 }

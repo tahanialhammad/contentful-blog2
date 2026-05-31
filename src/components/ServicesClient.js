@@ -23,8 +23,8 @@ export default function ServicesClient({ services, categories }) {
     activeCategory === "All"
       ? services
       : services.filter(
-          (s) => s.fields.category?.fields?.name === activeCategory
-        );
+        (s) => s.fields.category?.fields?.name === activeCategory
+      );
 
   const sortedServices = [...filteredServices].sort((a, b) => {
     if (priceSort === "price_asc") {
@@ -47,11 +47,10 @@ export default function ServicesClient({ services, categories }) {
             <div className="flex flex-wrap gap-3 font-sans">
               <button
                 onClick={() => setActiveCategory("All")}
-                className={`px-5 py-2.5 rounded-full border transition-all duration-200 text-sm font-semibold ${
-                  activeCategory === "All"
+                className={`px-5 py-2.5 rounded-full border transition-all duration-200 text-sm font-semibold ${activeCategory === "All"
                     ? "bg-primary border-primary text-white shadow-ambient"
                     : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
-                }`}
+                  }`}
               >
                 الكل
               </button>
@@ -60,11 +59,10 @@ export default function ServicesClient({ services, categories }) {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2.5 rounded-full border transition-all duration-200 text-sm font-semibold ${
-                    activeCategory === cat
+                  className={`px-5 py-2.5 rounded-full border transition-all duration-200 text-sm font-semibold ${activeCategory === cat
                       ? "bg-primary border-primary text-white shadow-ambient"
                       : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
@@ -100,11 +98,10 @@ export default function ServicesClient({ services, categories }) {
                           setPriceSort(option.value);
                           setIsOpen(false);
                         }}
-                        className={`w-full text-right px-5 py-3 text-sm transition-colors duration-150 ${
-                          priceSort === option.value
+                        className={`w-full text-right px-5 py-3 text-sm transition-colors duration-150 ${priceSort === option.value
                             ? "bg-primary/10 text-primary font-bold"
                             : "text-on-surface-variant hover:bg-surface-container-low"
-                        }`}
+                          }`}
                       >
                         {option.label}
                       </button>
@@ -134,7 +131,7 @@ export default function ServicesClient({ services, categories }) {
                   link={`/services/${fields.slug}`}
                   image={fields.image?.fields?.file?.url ? `https:${fields.image.fields.file.url}` : null}
                   imageAlt={fields.name}
-                  footer={`السعر: ${fields.price} ر.س`}
+                  footer={`السعر: ${fields.price} د.ع`}
                 />
               );
             })}
