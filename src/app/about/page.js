@@ -6,7 +6,7 @@ import PageContent from "../../components/PageContent";
 export default function AboutPage() {
   return (
     <div>
-      <HeroSection title="مرحباً، أنا تهاني" />
+      <HeroSection title="مرحباً، أنا نور " />
       <PageContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 items-center font-sans text-right">
           {/* Right column: Content */}
