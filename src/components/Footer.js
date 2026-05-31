@@ -22,12 +22,11 @@ export default function Footer() {
         <div>
           <h4 className="font-serif text-lg font-bold mb-4 text-foreground">تواصل معنا</h4>
           <ul className="text-sm text-on-surface-variant space-y-2">
-            <li>البريد الإلكتروني: <a href="mailto:info@hadayanawara.com" className="hover:text-primary transition-colors">info@hadayanawara.com</a></li>
-            <li>الموقع: المملكة العربية السعودية</li>
-            <li>شحن وتوصيل لكافة مدن المملكة</li>
+            <li>البريد الإلكتروني: <a href="mailto:nawara@gamail.com" className="hover:text-primary transition-colors">nawara@gmail.com</a></li>
+            <li>الموقع:  العراق , بغداد </li>
+            <li>شحن وتوصيل لكافة مدن العراق</li>
           </ul>
         </div>
-
         <div>
           <h4 className="font-serif text-lg font-bold mb-4 text-foreground">تابعنا</h4>
           <div className="flex justify-start gap-4">
@@ -37,7 +36,7 @@ export default function Footer() {
               </svg>
             </a>
 
-            <a href="#" aria-label="Instagram" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="https://www.instagram.com/nawara_ali_?igsh=eDZ3OGVkd2l1OWR5" aria-label="Instagram" className="text-on-surface-variant hover:text-primary transition-colors">
               <svg fill="currentColor" viewBox="0 0 24 24" className="h-6 w-6">
                 <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zM12 8a4 4 0 100 8 4 4 0 000-8zm0 2.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm4.5-3a1 1 0 110 2 1 1 0 010-2z" />
               </svg>
