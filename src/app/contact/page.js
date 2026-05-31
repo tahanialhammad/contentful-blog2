@@ -17,8 +17,8 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold text-foreground">موقعنا</h3>
               <p className="text-on-surface-variant leading-relaxed">
-                المملكة العربية السعودية <br />
-                شحن وتوصيل لجميع المناطق
+                العراق , بغداد<br />
+                شحن وتوصيل لجميع مناطق بغداد
               </p>
             </div>
 
@@ -27,8 +27,8 @@ export default function ContactPage() {
                 <Mail size={32} className="text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground">البريد الإلكتروني</h3>
-              <a href="mailto:info@hadayanawara.com" className="text-primary hover:text-primary-container font-semibold transition-colors">
-                info@hadayanawara.com
+              <a href="mailto:nawara@gmail.com" className="text-primary hover:text-primary-container font-semibold transition-colors">
+                nawara@gmail.com
               </a>
             </div>
 
