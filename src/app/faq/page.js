@@ -52,7 +52,7 @@ export default async function FAQPage() {
 
   return (
     <div>
-      <HeroSection title="Veelgestelde vragen" />
+      <HeroSection title="الأسئلة الشائعة" />
       <PageContent>
         {faqGroups.map((group) => {
           // Zet elk FAQ item om naar juiste formaat voor Accordion
@@ -64,11 +64,11 @@ export default async function FAQPage() {
           return (
             <div
               key={group.sys.id}
-              className="mb-12 flex flex-col md:flex-row gap-6 border-b-2 border-fuchsia-600"
+              className="mb-12 flex flex-col md:flex-row gap-6 border-b border-outline-variant/30 pb-8 text-right"
             >
               {/* Linker kolom: titel */}
               <div className="md:w-1/4 flex items-start">
-                <h2 className="text-xl font-semibold">{group.fields.title}</h2>
+                <h2 className="font-serif text-2xl font-bold text-foreground">{group.fields.title}</h2>
               </div>
 
               {/* Rechter kolom: Accordion */}
@@ -76,7 +76,7 @@ export default async function FAQPage() {
                 {faqItems?.length > 0 ? (
                   <Accordion items={faqItems} />
                 ) : (
-                  <p>Geen vragen in deze groep.</p>
+                  <p className="font-sans text-on-surface-variant">لا توجد أسئلة في هذه المجموعة حاليًا.</p>
                 )}
               </div>
             </div>

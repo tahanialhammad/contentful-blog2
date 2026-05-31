@@ -4,7 +4,6 @@ import { useState } from "react";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Image from "next/image";
 import Link from "next/link";
-import { generateSlug } from "../lib/generateSlug";
 import HeroSection from "../components/HeroSection";
 import PageContent from "../components/PageContent";
 
@@ -20,30 +19,30 @@ export default function PortfolioClient({ projects, categories }) {
 
   return (
     <div>
-      <HeroSection title="منتجاتنا" />
+      <HeroSection title="أعمالنا المميزة" />
       <PageContent>
-        <div className="max-w-6xl mx-auto px-6 py-12">
-          {/* Filter knoppen */}
-          <div className="flex flex-wrap gap-3 mb-8">
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          {/* Filter buttons (RTL layout direction handled by layout wrapper) */}
+          <div className="flex flex-wrap gap-3 mb-10 font-sans">
             <button
               onClick={() => setActiveCategory("All")}
-              className={`px-4 py-2 rounded-full border transition ${
+              className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-semibold ${
                 activeCategory === "All"
-                  ? "bg-fuchsia-600 text-white"
-                  : "border-gray-300 text-gray-700 hover:bg-fuchsia-600 hover:text-white"
+                  ? "bg-primary border-primary text-white shadow-ambient"
+                  : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
               }`}
             >
-              Alle
+              الكل
             </button>
 
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full border transition ${
+                className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-semibold ${
                   activeCategory === cat
-                    ? "bg-fuchsia-600 text-white"
-                    : "border-gray-300 text-gray-700 hover:bg-fuchsia-600 hover:text-white"
+                    ? "bg-primary border-primary text-white shadow-ambient"
+                    : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
                 }`}
               >
                 {cat}
@@ -52,12 +51,12 @@ export default function PortfolioClient({ projects, categories }) {
           </div>
 
           {/* Project grid */}
-          <div className="mx-auto grid max-w-2xltt grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => {
               const category =
-                project.fields.category?.fields?.name || "Geen categorie";
+                project.fields.category?.fields?.name || "بدون تصنيف";
 
-              // Korte beschrijving
+              // Short description
               const plainText = project.fields.description
                 ? documentToPlainTextString(project.fields.description)
                 : "";
@@ -66,40 +65,40 @@ export default function PortfolioClient({ projects, categories }) {
                   ? plainText.slice(0, 200) + "..."
                   : plainText;
 
-              // Afbeelding
+              // Image
               const imageUrl = project.fields.image?.fields?.file?.url;
               const imageAlt =
                 project.fields.image?.fields?.title || project.fields.title;
 
-              // Slug
-              const slug = generateSlug(project.fields.title);
+              // Slug — use fields.slug from Contentful (same as posts & services)
+              const slug = project.fields.slug;
 
               return (
                 <Link
                   key={project.sys.id}
                   href={`/portfolio/${slug}`}
-                  className="block rounded-lg bg-white shadow hover:shadow-lg transition overflow-hidden"
+                  className="block rounded-xl bg-surface-container-lowest shadow-ambient hover:shadow-glow transition-all duration-300 overflow-hidden"
                 >
-                  {/* Image bovenaan */}
+                  {/* Image on top */}
                   {imageUrl && (
-                    <div className="relative w-full h-48">
+                    <div className="relative w-full h-56">
                       <Image
                         src={`https:${imageUrl}`}
                         alt={imageAlt}
                         fill
-                        className="object-cover rounded-t-lg"
+                        className="object-cover rounded-t-xl"
                       />
                     </div>
                   )}
 
-                  <div className="p-4">
-                    <div className="text-sm text-fuchsia-600 font-medium mb-1">
+                  <div className="p-6">
+                    <div className="text-xs text-primary font-bold tracking-wider mb-2 font-sans">
                       {category}
                     </div>
-                    <h2 className="text-xl font-semibold line-clamp-2 break-words">
+                    <h2 className="font-serif text-xl font-bold text-foreground line-clamp-2 leading-snug">
                       {project.fields.title}
                     </h2>
-                    <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                    <p className="mt-3 font-sans text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
                       {shortText}
                     </p>
                   </div>

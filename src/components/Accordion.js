@@ -71,26 +71,26 @@ export default function Accordion({ items }) {
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto space-y-2 p-4 ">
+    <div className="w-full max-w-xl mx-auto space-y-2 p-4 font-sans">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
 
         return (
-          <div key={index}>
+          <div key={index} className="border-b border-outline-variant/15">
             <button
               onClick={() => toggle(index)}
-              className="flex justify-between w-full text-left font-bold text-black py-2 focus:outline-none"
+              className="flex justify-between items-center w-full text-right font-bold text-foreground py-3 focus:outline-none hover:text-primary transition-colors cursor-pointer"
             >
               <span>{item.question}</span>
               <ChevronUpIcon
-                className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
-                  isOpen ? 'rotate-180' : ''
+                className={`w-5 h-5 text-on-surface-variant transition-transform duration-200 ${
+                  isOpen ? 'rotate-180 text-primary' : ''
                 }`}
               />
             </button>
 
             {isOpen && (
-              <div className="text-sm text-gray-700 pb-4 transition duration-200">
+              <div className="text-sm text-on-surface-variant pb-4 leading-relaxed transition-all duration-200">
                 {item.answer}
               </div>
             )}

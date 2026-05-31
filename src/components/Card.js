@@ -3,42 +3,42 @@ import Image from "next/image";
 
 export default function Card({ image, title, description, link, footer, imageAlt = "", imageHeight = 200 }) {
   return (
-    <div className="flex flex-col justify-between h-full bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="flex flex-col justify-between h-full bg-surface-container-lowest rounded-xl shadow-ambient hover:shadow-glow transition-shadow duration-300 overflow-hidden">
       {/* Image (cardImage) */}
       {image && (
-        <div className={`relative w-full h-[${imageHeight}px]`}>
+        <div className="relative w-full" style={{ height: `${imageHeight}px` }}>
           <Image
             src={image}
             alt={imageAlt || title}
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-t-xl"
           />
         </div>
       )}
 
       {/* Card Body */}
-      <div className="p-5 flex-1 flex flex-col justify-between">
+      <div className="p-6 flex-1 flex flex-col justify-between">
         {/* Card Header */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-          {link ? <Link href={link} className="hover:text-blue-600">{title}</Link> : title}
+        <h3 className="font-serif text-xl font-bold text-foreground mb-2 line-clamp-2 leading-snug">
+          {link ? <Link href={link} className="hover:text-primary transition-colors">{title}</Link> : title}
         </h3>
 
         {/* Card Description */}
         {description && (
-          <p className="text-sm text-gray-600 line-clamp-3 mb-4">{description}</p>
+          <p className="font-sans text-sm text-on-surface-variant line-clamp-3 mb-4 leading-relaxed">{description}</p>
         )}
 
         {/* Lees meer link */}
         {link && (
-          <Link href={link} className="text-blue-600 underline text-sm mt-auto">
-            Lees meer →
+          <Link href={link} className="font-sans text-primary hover:text-primary-container font-semibold text-sm mt-auto inline-flex items-center gap-1 transition-colors">
+            اقرأ المزيد ←
           </Link>
         )}
       </div>
 
       {/* Card Footer */}
       {footer && (
-        <div className="p-5 border-t bg-gray-50 text-sm text-gray-700">
+        <div className="p-5 border-t border-outline-variant bg-surface-container-low text-sm text-on-surface-variant font-medium">
           {footer}
         </div>
       )}

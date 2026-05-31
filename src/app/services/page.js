@@ -2,7 +2,6 @@ import client from "../../lib/contentful";
 import Image from "next/image";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Link from "next/link";
-import { generateSlug } from "../../lib/generateSlug";
 import Card from "../../components/Card";
 import HeroSection from "../../components/HeroSection";
 import PageContent from "../../components/PageContent";
@@ -29,10 +28,10 @@ export default async function ServicesPage() {
                 key={sys.id}
                 title={fields.name}
                 description={shortText}
-                link={`/services/${generateSlug(fields.name)}`}
+                link={`/services/${fields.slug}`}
                 image={`https:${fields.image.fields.file.url}`}
                 imageAlt={fields.name}
-                footer={`Prijs: €${fields.price}`}
+                footer={`السعر: ${fields.price} ر.س`}
               />
             );
           })}

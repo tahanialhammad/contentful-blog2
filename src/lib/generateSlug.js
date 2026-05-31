@@ -1,4 +1,7 @@
 export function generateSlug(item) {
+  if (!item || typeof item !== "string") {
+    return "";
+  }
   return item
     .toLowerCase()
     .trim()

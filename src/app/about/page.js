@@ -3,98 +3,88 @@ import Image from "next/image";
 import CallToAction from "../../components/CallToAction";
 import PageContent from "../../components/PageContent";
 
-export default function Aboutage() {
+export default function AboutPage() {
   return (
     <div>
-      <HeroSection title="Hi, ik ben Tahani" />
+      <HeroSection title="مرحباً، أنا تهاني" />
       <PageContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 py-12">
-          {/* Linker kolom */}
-          <div className="">
-            <h2 className="text-xl font-bold mb-4">
-              Freelance webontwikkelaar en oprichter van Tahanina
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 items-center font-sans text-right">
+          {/* Right column: Content */}
+          <div className="space-y-4">
+            <h2 className="font-serif text-2xl font-bold text-foreground">
+              مؤسسة هدايا نوارة للشموع والريزن المصنوعة يدويًا
             </h2>
-            <p>
-              Ik bouw websites en webapplicaties die niet alleen werken, maar
-              ook spreken. Vanuit Groningen help ik ondernemers met alles van
-              WordPress tot maatwerk Laravel software.
+            <p className="text-on-surface-variant leading-relaxed">
+              بدأ شغفي في صناعة الشموع العطرية وأعمال الريزن كشكل من أشكال التعبير الفني والجمال البصري. في هدايا نوارة، نسعى دائمًا لتقديم قطع فريدة تُصنع يدويًا بكل حب وعناية، لتضفي لمسة من الدفء والهدوء على منازلكم، وتكون هدايا استثنائية تعبر عن مشاعركم الصادقة لمن تحبون.
             </p>
           </div>
 
-          {/* Rechter kolom */}
-          <div className="rounded-lg">
-            <Image
-              src="/tahanina.png"
-              alt="about tahanina"
-              width={200}
-              height={200}
-              className="object-cover rounded-xl my-4 shadow-2xl"
-              priority
-            />
-            <Image
-              className="dark:invert"
-              src="/next.svg"
-              alt="Next.js logo"
-              width={180}
-              height={38}
-              priority
-            />
+          {/* Left column: Image */}
+          <div className="flex justify-center items-center">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 shadow-ambient rounded-full overflow-hidden border-4 border-primary/20">
+              <Image
+                src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=687&auto=format&fit=crop"
+                alt="صناعة الشموع والريزن هدايا نوارة"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
 
-        <section className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-xl shadow">
-              <h3 className="text-xl font-semibold mb-2">
-                Heldere communicatie
+        {/* Brand Values Section */}
+        <section className="max-w-6xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl shadow-ambient hover:shadow-glow transition-all duration-300 text-right">
+              <h3 className="font-serif text-xl font-bold text-foreground mb-3">
+                صناعة يدوية دقيقة
               </h3>
-              <p className="text-gray-600">
-                Vanaf het begin weet je waar je aan toe bent – ik leg alles
-                duidelijk uit, zonder vakjargon.
+              <p className="font-sans text-sm text-on-surface-variant leading-relaxed">
+                كل قطعة من منتجاتنا تُصنع يدويًا بالكامل من الصفر، مما يضمن خلوها من التكرار وتميزها بتفاصيل دقيقة وجودة حرفية عالية.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-xl shadow">
-              <h3 className="text-xl font-semibold mb-2">Samenwerking</h3>
-              <p className="text-gray-600">
-                Ik denk actief met je mee en neem beslissingen in overleg – we
-                creëren het eindresultaat echt samen.
+            <div className="p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl shadow-ambient hover:shadow-glow transition-all duration-300 text-right">
+              <h3 className="font-serif text-xl font-bold text-foreground mb-3">
+                مواد طبيعية وآمنة
+              </h3>
+              <p className="font-sans text-sm text-on-surface-variant leading-relaxed">
+                نلتزم باستخدام شمع الصويا الطبيعي 100% والزيوت العطرية النقية الخالية من البارابين، والريزن الفاخر المقاوم للخدش والاصفرار.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-xl shadow">
-              <h3 className="text-xl font-semibold mb-2">Duidelijke prijzen</h3>
-              <p className="text-gray-600">
-                Geen verborgen kosten – je krijgt altijd vooraf een transparante
-                offerte, zodat je precies weet waar je aan toe bent.
+            <div className="p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl shadow-ambient hover:shadow-glow transition-all duration-300 text-right">
+              <h3 className="font-serif text-xl font-bold text-foreground mb-3">
+                تصاميم وهدايا مخصصة
+              </h3>
+              <p className="font-sans text-sm text-on-surface-variant leading-relaxed">
+                نمنحك القدرة على اختيار الألوان والروائح والأسماء لطلب قطع وتوزيعات تناسب تمامًا ذوقك ومناسباتك الخاصة.
               </p>
             </div>
           </div>
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 py-12">
-          {/* Linker kolom */}
-          <div className="relative w-full h-80">
+        {/* Explain the Name */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 items-center font-sans text-right">
+          {/* Right Column: Image */}
+          <div className="relative w-full h-80 rounded-xl overflow-hidden shadow-ambient hidden md:block">
             <Image
-              src="/background2.webp"
-              alt="Over Tahanina"
+              src="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=1170&auto=format&fit=crop"
+              alt="لماذا هدايا نوارة"
               fill
-              className="object-cover rounded-xl"
+              className="object-cover"
               priority={false}
             />
           </div>
 
-          {/* Rechter kolom */}
-          <div className="p-6">
-            <h2 className="text-xl font-bold mb-4">Waarom Tahanina?</h2>
-            <p>
-              Tahanina is een Arabische uitdrukking die “gefeliciteerd”
-              betekent. Het komt van mijn voornaam Tahani en weerspiegelt mijn
-              missie: bijdragen aan positieve resultaten en groei van mijn
-              klanten.
-              <br />
-              Deze naam past bij mijn identiteit en mijn wens om met elke
-              website of app een stukje vreugde en succes te brengen.
+          {/* Left Column: Text */}
+          <div className="p-6 space-y-4">
+            <h2 className="font-serif text-2xl font-bold text-foreground">لماذا هدايا نوارة؟</h2>
+            <p className="text-on-surface-variant leading-relaxed">
+              اسم <strong>نوارة</strong> يعني الضياء والإشراق والزهرة المتفتحة. يعكس هذا الاسم رؤيتنا في نشر الدفء والجمال والضوء من خلال شموعنا العطرة المضيئة وقطع الريزن البراقة التي نصنعها. 
+              <br /><br />
+              نحن نؤمن أن كل هدية تقدمها تحمل معها مشاعر صادقة وتهاني حارة، لذا نسعى لجعلها نوارة تضيء قلوب من تحبون وتترك فيها أثرًا جميلاً يدوم.
             </p>
           </div>
         </div>

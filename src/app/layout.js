@@ -1,16 +1,16 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
 });
 
@@ -23,10 +23,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${plusJakarta.variable} antialiased`}
       >
         <NavBar />
-        <main className="relative isolate px-6 pt-14 lg:px-8 bg-fuchsia-50 ">{children}</main>
+        <main className="relative isolate px-6 pt-14 lg:px-8 bg-background">{children}</main>
         <Footer />
       </body>
     </html>

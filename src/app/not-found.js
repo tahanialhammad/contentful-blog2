@@ -2,24 +2,27 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-     <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+     <main className="grid min-h-full place-items-center bg-background px-6 py-24 sm:py-32 lg:px-8 font-sans">
         <div className="text-center">
-          <p className="text-base font-semibold text-fuchsia-600">404</p>
-          <h1 className="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">
-            Page not found
+          <p className="font-serif text-base font-bold text-primary text-5xl">404</p>
+          <h1 className="mt-4 font-serif text-3xl font-extrabold tracking-tight text-balance text-foreground sm:text-5xl">
+            الصفحة غير موجودة
           </h1>
-          <p className="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-            Sorry, we couldn’t find the page you’re looking for.
+          <p className="mt-6 text-base text-on-surface-variant leading-relaxed">
+            عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/"
-              className="rounded-md bg-fuchsia-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-fuchsia-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-600"
+              className="inline-flex items-center justify-center bg-primary text-white border border-transparent font-bold py-3 px-6 rounded-full shadow-ambient hover:shadow-glow hover:scale-[1.02] transition-all duration-200"
             >
-              Go back home
+              العودة للرئيسية
             </Link>
-            <Link href="#" className="text-sm font-semibold text-gray-900">
-              Contact support <span aria-hidden="true">&rarr;</span>
+            <Link 
+              href="/contact" 
+              className="text-sm font-bold text-on-surface-variant hover:text-primary transition-colors"
+            >
+              اتصل بنا <span aria-hidden="true">&larr;</span>
             </Link>
           </div>
         </div>

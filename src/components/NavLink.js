@@ -15,8 +15,8 @@ export default function NavLink({ href, children }) {
         border-b-2
         ${
           isActive
-            ? "border-fuchsia-600 font-bold text-gray-900"
-            : "border-transparent text-gray-700 hover:border-fuchsia-600 hover:text-gray-900"
+            ? "border-primary font-bold text-foreground"
+            : "border-transparent text-on-surface-variant hover:border-primary hover:text-foreground"
         }
       `}
     >
