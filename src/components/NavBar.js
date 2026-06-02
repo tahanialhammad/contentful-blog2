@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavLink from "./NavLink";
+import Image from "next/image";
 
 const navigation = [
   { name: "الرئيسية", href: "/" },
@@ -26,9 +27,13 @@ export default function NavBar() {
       >
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-            <span className="font-serif text-2xl font-bold tracking-wide text-primary">
-              هدايا نوارة
-            </span>
+            <Image
+              src="/logo.png"
+              alt="صناعة الشموع والريزن هدايا نوارة"
+              width={50}
+              height={50}
+              className="object-cover"
+            />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -49,8 +54,8 @@ export default function NavBar() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             className="text-sm font-bold text-primary hover:text-primary-container transition-colors inline-flex items-center gap-1"
           >
             تواصل معنا <span aria-hidden="true">&larr;</span>
