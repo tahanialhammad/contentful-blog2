@@ -14,8 +14,8 @@ export default function PortfolioClient({ projects, categories }) {
     activeCategory === "All"
       ? projects
       : projects.filter(
-          (p) => p.fields.category?.fields?.name === activeCategory
-        );
+        (p) => p.fields.category?.fields?.name === activeCategory
+      );
 
   return (
     <div>
@@ -26,11 +26,10 @@ export default function PortfolioClient({ projects, categories }) {
           <div className="flex flex-wrap gap-3 mb-10 font-sans">
             <button
               onClick={() => setActiveCategory("All")}
-              className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-semibold ${
-                activeCategory === "All"
-                  ? "bg-primary border-primary text-white shadow-ambient"
-                  : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
-              }`}
+              className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-semibold ${activeCategory === "All"
+                ? "bg-primary border-primary text-white shadow-ambient"
+                : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
+                }`}
             >
               الكل
             </button>
@@ -39,11 +38,10 @@ export default function PortfolioClient({ projects, categories }) {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-semibold ${
-                  activeCategory === cat
-                    ? "bg-primary border-primary text-white shadow-ambient"
-                    : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
-                }`}
+                className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-semibold ${activeCategory === cat
+                  ? "bg-primary border-primary text-white shadow-ambient"
+                  : "border-outline-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary"
+                  }`}
               >
                 {cat}
               </button>
@@ -85,7 +83,8 @@ export default function PortfolioClient({ projects, categories }) {
                       <Image
                         src={`https:${imageUrl}`}
                         alt={imageAlt}
-                        fill
+                        width={400}
+                        height={400}
                         className="object-cover rounded-t-xl"
                       />
                     </div>

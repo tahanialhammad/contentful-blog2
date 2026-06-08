@@ -10,7 +10,8 @@ export default function Card({ image, title, description, link, footer, imageAlt
           <Image
             src={image}
             alt={imageAlt || title}
-            fill
+            width={400}
+            height={400}
             className="object-cover rounded-t-xl"
           />
         </div>

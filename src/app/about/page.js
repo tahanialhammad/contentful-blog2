@@ -2,10 +2,13 @@ import HeroSection from "../../components/HeroSection";
 import Image from "next/image";
 import CallToAction from "../../components/CallToAction";
 import PageContent from "../../components/PageContent";
+import RosePetalsBackground from "../../components/RosePetalsBackground";
 
 export default function AboutPage() {
   return (
     <div>
+      <RosePetalsBackground />
+
       <HeroSection title="مرحباً، أنا نور " />
       <PageContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 items-center font-sans text-right">

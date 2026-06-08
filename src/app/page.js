@@ -5,11 +5,13 @@ import CallToAction from "../components/CallToAction";
 import AppButton from "../components/AppButton";
 import CandleSection from "../components/CandleSection";
 import ResinSection from "../components/ResinSection";
+import RosePetalsBackground from "../components/RosePetalsBackground";
 
 
 export default function Home() {
   return (
     <div className="space-y-16 py-8">
+      <RosePetalsBackground />
       <HeroSection title="لمسة فنية من الشموع والريزن المصنوعة يدويًا">
         <p className="mt-6 text-lg leading-8 text-on-surface-variant font-sans max-w-2xl mx-auto">
           في هدايا نوارة نصنع قطعًا فنية فريدة تجمع بين الجمال والهدوء، من الشموع العطرية إلى أعمال الريزن المميزة، وكل قطعة تُصنع يدويًا بحب واهتمام بالتفاصيل.

@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import client from "../../lib/contentful";
 import ServicesClient from "../../components/ServicesClient";
 

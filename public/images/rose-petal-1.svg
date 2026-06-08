@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none">
+  <defs>
+    <linearGradient id="petal-grad-1" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ffb3b3" />
+      <stop offset="40%" stop-color="#e8a2a2" />
+      <stop offset="85%" stop-color="#874f4f" />
+      <stop offset="100%" stop-color="#6a3738" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#6a3738" flood-opacity="0.15" />
+    </filter>
+  </defs>
+  <path d="M50,15 C68,15 85,28 85,50 C85,72 65,85 50,85 C35,85 15,72 15,50 C15,28 32,15 50,15 Z" fill="url(#petal-grad-1)" filter="url(#shadow)" />
+</svg>
