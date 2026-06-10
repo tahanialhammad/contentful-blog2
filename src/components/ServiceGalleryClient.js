@@ -41,41 +41,47 @@ export default function ServiceGalleryClient({ service }) {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 font-sans text-right">
-
       {/* MAIN IMAGE WITH LENS ZOOM */}
       <div
-        className="relative w-full aspect-[4/3] mb-5 rounded-xl overflow-hidden shadow-ambient cursor-crosshair"
+        className="relative w-full h-[420px]  mb-5 rounded-xl overflow-hidden shadow-ambient cursor-crosshair"
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setZoom(true)}
         onMouseLeave={() => setZoom(false)}
       >
-        {/* IMAGE */}
-        <Image
-          src={`https:${currentImage.fields.file.url}`}
-          alt={name}
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
-
-        {/* LENS ZOOM */}
-        {zoom && (
+        {allImages.map((img, index) => (
           <div
-            className="absolute w-40 h-40 border-2 border-white shadow-lg rounded-full pointer-events-none"
-            style={{
-              top: `${pos.y}%`,
-              left: `${pos.x}%`,
-              transform: "translate(-50%, -50%)",
-              backgroundImage: `url(https:${currentImage.fields.file.url})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "300%",
-              backgroundPosition: `${pos.x}% ${pos.y}%`,
-            }}
-          />
-        )}
-      </div>
+            key={img.sys.id || index}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              index === selected ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={`https:${img.fields.file.url}`}
+              alt={name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index === 0}
+            />
 
+            {/* LENS ZOOM (only active image) */}
+            {zoom && index === selected && (
+              <div
+                className="absolute w-40 h-40 border-2 border-white shadow-lg rounded-full pointer-events-none"
+                style={{
+                  top: `${pos.y}%`,
+                  left: `${pos.x}%`,
+                  transform: "translate(-50%, -50%)",
+                  backgroundImage: `url(https:${img.fields.file.url})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "300%",
+                  backgroundPosition: `${pos.x}% ${pos.y}%`,
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
       {/* THUMBNAILS */}
       {allImages.length > 1 && (
         <div className="flex gap-3 mb-8 overflow-x-auto">

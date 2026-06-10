@@ -1,84 +1,13 @@
-// import client from "../../../lib/contentful";
-// import { notFound } from "next/navigation";
-// import Image from "next/image";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
-// export default async function ServicePage({ params }) {
-//   const { slug } = await params;
-//   const decodedSlug = decodeURIComponent(slug);
-
-//   // Query by fields.slug — same pattern as posts/[slug]/page.js
-//   const res = await client.getEntries({
-//     content_type: "service",
-//     "fields.slug": decodedSlug,
-//     limit: 1,
-//   });
-
-//   const service = res.items[0];
-
-//   if (!service) {
-//     notFound();
-//   }
-
-//   const { name, description, price, image, images } = service.fields;
-
-//   return (
-//     <div className="max-w-4xl mx-auto px-6 py-12 font-sans text-right">
-//       {image && (
-//         <div className="relative w-full h-80 sm:h-[450px] mb-8 shadow-ambient rounded-xl overflow-hidden">
-//           <Image
-//             src={`https:${image.fields.file.url}`}
-//             alt={name}
-//             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//             width={400}
-//             height={400}
-//             className="object-cover"
-//           />
-//         </div>
-//       )}
-//       <div>
-//         {images && (
-//           <div className="grid grid-cols-2 gap-4">
-//             {images.map((img) => (
-//               <Image
-//                 key={img.sys.id}
-//                 src={`https:${img.fields.file.url}`}
-//                 alt={name}
-//                 width={500}
-//                 height={500}
-//                 className="rounded-xl"
-//               />
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-outline-variant/30 pb-4 mb-6">
-//         <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-foreground">
-//           {name}
-//         </h1>
-//         <h3 className="text-xl font-bold text-primary mt-2 sm:mt-0 font-sans">
-//           السعر: {price} ر.س
-//         </h3>
-//       </div>
-
-//       <div className="prose prose-stone max-w-none text-on-surface-variant leading-relaxed">
-//         {documentToReactComponents(description)}
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
-
 import client from "../../../lib/contentful";
 import { notFound } from "next/navigation";
 import ServiceGalleryClient from "../../../components/ServiceGalleryClient";
+import RelatedServices from "../../../components/RelatedServices";
 
 export default async function ServicePage({ params }) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
 
+  // 1. Get current service
   const res = await client.getEntries({
     content_type: "service",
     "fields.slug": decodedSlug,
@@ -91,5 +20,28 @@ export default async function ServicePage({ params }) {
     notFound();
   }
 
-  return <ServiceGalleryClient service={service} />;
+  // 2. Get related services (same category)
+const categoryId = service.fields.category?.sys?.id;
+
+let relatedServices = [];
+
+if (categoryId) {
+  const relatedRes = await client.getEntries({
+    content_type: "service",
+    "fields.category.sys.id": categoryId,
+    order: "-sys.createdAt", // 🔥 الأحدث أولاً
+    limit: 4, // نجيب 4 عشان نقدر نستثني الحالي
+  });
+
+  relatedServices = relatedRes.items
+    .filter((item) => item.sys.id !== service.sys.id)
+    .slice(0, 3); // 🔥 نأخذ فقط 3
+}
+  return (
+    <>
+      <ServiceGalleryClient service={service} />
+
+      <RelatedServices services={relatedServices} />
+    </>
+  );
 }
