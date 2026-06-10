@@ -122,14 +122,13 @@ export default function ServicesClient({ services, categories }) {
                 plainText.length > 200
                   ? plainText.slice(0, 200) + "..."
                   : plainText;
-
               return (
                 <Card
                   key={sys.id}
                   title={fields.name}
                   description={shortText}
                   link={`/services/${fields.slug}`}
-                  image={fields.image?.fields?.file?.url ? `https:${fields.image.fields.file.url}` : null}
+                  image={fields.images?.[0]?.fields?.file?.url ? `https:${fields.images?.[0].fields.file.url}` : null}
                   imageAlt={fields.name}
                   footer={`السعر: ${fields.price} د.ع`}
                 />

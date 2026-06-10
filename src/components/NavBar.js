@@ -32,7 +32,6 @@ export default function NavBar() {
               alt="صناعة الشموع والريزن هدايا نوارة"
               width={50}
               height={50}
-              className="object-cover"
             />
           </a>
         </div>
