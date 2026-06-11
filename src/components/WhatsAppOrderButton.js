@@ -9,15 +9,15 @@ export default function WhatsAppOrderButton({
   phone = "9647715558945", // غيّر الرقم هنا أو مرره كـ prop
   label = "اطلب عبر واتساب",
 }) {
+  const productUrl = `https://nawara-gifts.vercel.app/services/${slug}`;
   const message = encodeURIComponent(
     `مرحبا 👋
 أريد طلب هذا المنتج:
 
 📌 الاسم: ${name}
 💰 السعر: ${price}
-🔗 الرابط: ${typeof window !== "undefined" ? window.location.href : ""}
-
-شكرا`
+🔗 الرابط: ${productUrl}
+شكرا`,
   );
 
   const url = `https://wa.me/${phone}?text=${message}`;
