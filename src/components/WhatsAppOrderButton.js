@@ -6,7 +6,7 @@ export default function WhatsAppOrderButton({
   name,
   price,
   slug,
-  phone = "009647715558945", // غيّر الرقم هنا أو مرره كـ prop
+  phone = "9647715558945", // غيّر الرقم هنا أو مرره كـ prop
   label = "اطلب عبر واتساب",
 }) {
   const message = encodeURIComponent(
