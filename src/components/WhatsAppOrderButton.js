@@ -27,7 +27,7 @@ export default function WhatsAppOrderButton({
     <Link
       href={url}
       target="_blank"
-      className="inline-flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-full font-bold hover:bg-green-600 transition shadow-md"
+      className="inline-flex items-center justify-center bg-green-500 text-white px-6 py-6 rounded-full font-bold hover:bg-green-600 transition shadow-md"
     >
       {label}
     </Link>
