@@ -29,7 +29,7 @@ export default function ServiceGalleryClient({ service }) {
 <WhatsAppOrderButton
   name={name}
   price={price}
-  slug={slug}
+  slug={service.fields.slug}
 />
       </div>
 
