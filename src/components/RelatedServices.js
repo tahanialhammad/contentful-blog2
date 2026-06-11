@@ -10,7 +10,11 @@ export default function RelatedServices({ services }) {
         خدمات ذات صلة
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* MOBILE: horizontal scroll | DESKTOP: grid */}
+      <div className="
+        flex gap-4 overflow-x-auto pb-4
+        sm:grid sm:grid-cols-2 md:grid-cols-3 sm:overflow-visible
+      ">
 
         {services.map((service) => {
           const { name, images, slug } = service.fields;
@@ -20,13 +24,17 @@ export default function RelatedServices({ services }) {
             : null;
 
           return (
-            <Card
+            <div
               key={service.sys.id}
-              image={image}
-              title={name}
-              link={`/services/${slug}`}
-              imageAlt={name}
-            />
+              className="min-w-[280px] sm:min-w-0"
+            >
+              <Card
+                image={image}
+                title={name}
+                link={`/services/${slug}`}
+                imageAlt={name}
+              />
+            </div>
           );
         })}
 

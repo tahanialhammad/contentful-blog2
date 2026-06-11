@@ -2,9 +2,10 @@
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import ServiceGallery from "./ServiceGallery";
+import WhatsAppOrderButton from "./WhatsAppOrderButton";
 
 export default function ServiceGalleryClient({ service }) {
-  const { name, description, price, images } = service.fields;
+  const { name, description, price, images, slug } = service.fields;
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 font-sans text-right">
@@ -24,6 +25,12 @@ export default function ServiceGalleryClient({ service }) {
         <h3 className="text-xl font-bold text-primary font-sans mt-2 sm:mt-0">
           السعر: {price} د.ع
         </h3>
+
+<WhatsAppOrderButton
+  name={name}
+  price={price}
+  slug={slug}
+/>
       </div>
 
       {/* DESCRIPTION */}
